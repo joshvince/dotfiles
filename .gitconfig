@@ -1,1 +1,9 @@
-/Users/joshvince/.gitconfig
+[user]
+	name = Josh Vince
+	email = joshmvince@gmail.com
+[credential]
+	helper = osxkeychain
+[commit]
+	template = /Users/joshvince/.gitmessage.txt
+[pull]
+	rebase = false

@@ -1,1 +1,6 @@
-/Users/joshvince/.gitmessage.txt
+Subject line 
+
+Multi line description of the commit.
+Be detailed!
+
+
