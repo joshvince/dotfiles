@@ -9,11 +9,10 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git dotenv)
+plugins=(git dotenv bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -21,30 +20,29 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/.macosdefaults.sh
 
-# languages
-eval "$(rbenv init -)"
-
-. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
-. /usr/local/opt/asdf/asdf.sh
-
-# ZC stuff
-
-export RACK_TIMEOUT_SERVICE_TIMEOUT=0
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
 # load sensitive credentials from a local file
 source $HOME/.credentials
 
+# languages
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
 
-eval "$($HOME/.zen/bin/zen init -)"
-path+=('~/.zen/bin')
-
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+. /usr/local/opt/asdf/asdf.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# this should probably be the last line 
+export NODE_OPTIONS="--max-old-space-size=8192"
+
+# thefuck shell plugin
+eval $(thefuck --alias)
+
+# stop homebrew auto-updating all the time
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# this should probably be the last line
 export path
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

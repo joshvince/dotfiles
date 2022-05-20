@@ -4,6 +4,14 @@
 [credential]
 	helper = osxkeychain
 [commit]
-	template = /Users/joshvince/.gitmessage.txt
+	template = ~/.gitmessage.txt
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
+[config]
+	autosquash = true
+[rebase]
+	autosquash = true
+[core]
+	excludesfile = ~/.gitignore_global
